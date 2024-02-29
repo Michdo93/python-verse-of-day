@@ -8,7 +8,7 @@ class VerseOfDay(object):
         self.month = month
         self.day = day
 
-        url = "https://www.losungen.de/fileadmin/media-losungen/heute/{}/{}{}.html".format(year, month, day)
+        url = "https://www.losungen.de/fileadmin/media-losungen/heute/{}/{}{}.html".format(year, self.__add_leading_zero(month), day)
 
         response = requests.get(url)
 
@@ -17,6 +17,9 @@ class VerseOfDay(object):
             self.contents = soup.find_all('font')
         else:
             print("Error accessing the verse of day {}".format(response.status_code))
+
+    def __add_leading_zero(self, month):
+        return "%02d" % month
 
     def get_verse_of_day(self):
         verse_of_day_content = self.contents[2]
