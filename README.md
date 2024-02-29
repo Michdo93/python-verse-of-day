@@ -21,7 +21,6 @@ python3 -m pip install beautifulsoup4
 
 ## Usage
 
-
 ### Python 2.7
 
 ```
@@ -32,4 +31,42 @@ python vod.py
 
 ```
 python3 vod.py
+```
+
+## Customization
+
+You can change the current day
+
+```
+if __name__ == "__main__":
+    vod = VerseOfDay()
+    print(vod.get_verse_of_day())
+
+    print("\n")
+    
+    print(vod.get_teaching_text())
+```
+
+to a specific date
+
+```
+if __name__ == "__main__":
+    vod = VerseOfDay("2024","02","20")
+    print(vod.get_verse_of_day())
+
+    print("\n")
+    
+    print(vod.get_teaching_text())
+```
+
+Please notice that integers could be parsed to strings, so it would also work with:
+
+```
+if __name__ == "__main__":
+    vod = VerseOfDay(2024,02,20)
+    print(vod.get_verse_of_day())
+
+    print("\n")
+    
+    print(vod.get_teaching_text())
 ```
